@@ -1,0 +1,14 @@
+com/medx/MainApplication.java
+ com.medx.MainApplication
+ com.medx.MainApplication$1
+com/medx/MainActivity.java
+ com.medx.MainActivity
+com/medx/BuildConfig.java
+ com.medx.BuildConfig
+com/medx/ReactNativeFlipper.java
+ com.medx.ReactNativeFlipper
+ com.medx.ReactNativeFlipper$1
+ com.medx.ReactNativeFlipper$2
+ com.medx.ReactNativeFlipper$2$1
+com/facebook/react/PackageList.java
+ com.facebook.react.PackageList
