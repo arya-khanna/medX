@@ -56,6 +56,7 @@ app.post('/upload-prescription-image', async (req, res) => {
 });
 
 app.get("/prescriptions", (req, res) => {
+  console.log("/prescriptions")
   db.all("SELECT * FROM prescriptions", (err, rows) => {
     if (err) {
       res.status(500).send(err);

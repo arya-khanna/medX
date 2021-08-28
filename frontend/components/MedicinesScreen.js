@@ -1,8 +1,32 @@
+import { Constants } from 'expo-camera';
 import React from 'react';
 import { StyleSheet, Image, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { LongPressGestureHandler } from 'react-native-gesture-handler';
+import { api } from '../constants.js'
 
-const MedicinesScreen = () => {
-    return (
+class MedicinesScreen extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      medicines: [],
+      loading: true
+    }
+  }
+
+  componentDidMount() {
+    if (this.state.loading) {
+      console.log(api)
+      fetch(`${api}/prescriptions`).then(response => {
+        console.log("in here")
+        console.log(response);
+      }).catch(err => {
+        console.log(err);
+      })
+    }
+  }
+
+  render() {
+    return(
       <View style={styles.container}>
         <TouchableOpacity>
           <Text style={[styles.MedName]}>Perindopril</Text>
@@ -18,6 +42,7 @@ const MedicinesScreen = () => {
       </View>
 
     );
+  }  
 };
 
 const styles = StyleSheet.create({

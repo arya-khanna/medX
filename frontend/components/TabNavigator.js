@@ -10,7 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Colors from "../styles/Colors";
 import styles from "../styles/GlobalStyles"
 import CameraScreen from './CameraScreen';
-import Reminders from './Reminders';
+// import Reminders from './Reminders';
 import MedicinesScreen from './MedicinesScreen';
 
 const Tab = createBottomTabNavigator();
@@ -65,7 +65,7 @@ const TabNavigator = () => {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Reminders"
         component={Reminders}
         options={{
@@ -77,7 +77,7 @@ const TabNavigator = () => {
 
           ),
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Medicines"
         component={MedicinesScreen}
