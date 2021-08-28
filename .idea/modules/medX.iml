@@ -3,4 +3,7 @@
   <component name="ModuleRunConfigurationManager">
     <shared />
   </component>
+  <component name="NewModuleRootManager">
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
 </module>
