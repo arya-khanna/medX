@@ -102,3 +102,6 @@ node_modules
 
 # Android memory profiler files
 *.hprof
+
+#db
+db.sqlite3
