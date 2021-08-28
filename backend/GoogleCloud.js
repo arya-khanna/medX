@@ -1,4 +1,5 @@
 const vision = require('@google-cloud/vision');
+const language = require('@google-cloud/language');
 const {Storage} = require('@google-cloud/storage');
 
 export const detectText = async (fileName) => {
@@ -25,5 +26,22 @@ export const verifyCredentials = async () => {
 }
 
 export const analyzeEntities = async (string) => {
+	const client = new language.LanguageServiceClient();
+	const text = 'Your text to analyze, e.g. Hello, world!';
+	const document = {
+	  content: text,
+	  type: 'PLAIN_TEXT',
+	};
+	const [result] = await client.analyzeEntities({document});
 
+	const entities = result.entities;
+
+	console.log('Entities:');
+	entities.forEach(entity => {
+	  console.log(entity.name);
+	  console.log(` - Type: ${entity.type}, Salience: ${entity.salience}`);
+	  if (entity.metadata && entity.metadata.wikipedia_url) {
+		console.log(` - Wikipedia URL: ${entity.metadata.wikipedia_url}`);
+	  }
+	});
 }
