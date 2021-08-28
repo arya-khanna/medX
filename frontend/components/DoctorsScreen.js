@@ -1,10 +1,14 @@
 import { Constants } from 'expo-camera';
 import React from 'react';
 import { StyleSheet, Image, Text, View, TouchableOpacity, ScrollView } from 'react-native';
-import { LongPressGestureHandler } from 'react-native-gesture-handler';
 import { api } from '../constants.js'
+import MyStatusBar from './MyStatusBar.js';
+import Colors from './../styles/Colors'
+import Spinner from './Spinner.js';
+import { NativeBaseProvider, VStack, Box, Divider } from 'native-base';
+import { marginBottom } from 'styled-system';
 
-class DoctorList extends React.Component {
+class DoctorsScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -19,8 +23,7 @@ class DoctorList extends React.Component {
       fetch(`${api}/prescriptions`)
         .then(response => response.json())
         .then(data => {
-          this.setState({ doctors: data, loading: false });
-          console.log("loaded");
+          this.setState({ doctors: data.doctors, loading: false });
         })
         .catch(err => {
         console.log(err);
@@ -31,25 +34,38 @@ class DoctorList extends React.Component {
   render() {
     const { loading, doctors } = this.state;
     return (
-      loading ?
-        <Text> Loading </Text>
-        :
-        <ScrollView>
-          {doctors.map(doctor => <Doctor key={doctors.id} doctors={doctors} />)}
-        </ScrollView>
+      <NativeBaseProvider>
+      <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
+        {loading ?
+          <Spinner />
+          :
+          <ScrollView>
+            {doctors.sort((a, b) => a.name > b.name).map(doctor => <Doctor key={doctor.id} doctor={doctor} />)}
+          </ScrollView>
+        }
+      </NativeBaseProvider>
+        
     );
   }  
 };
 
 const Doctor = ({ doctor }) => {
-  const { id, name, email, phone } = doctor;
-  console.log(`${api}/prescription/${id}/file/${filename}`);
+  console.log(doctor)
+  const { id, name, phone_number } = doctor;
   return (
-    <View style={styles.container}>
-            <Text style={styles.details}>Doctor Name: {name}</Text>
-            <Text style={styles.details}>Email: {email}</Text>
-            <Text style={styles.details}>Phone: {phone}</Text>
-    </View>
+    <Box border={1} borderRadius='md' shadow={2} style={{margin: 10}} bgColor={Colors.Pink}>
+      <VStack space={4} divider={<Divider />}>
+        <Box px={4} pt={4}>
+          <Text style={{fontWeight: 'bold', color: Colors.brandBlue}}>{`Dr. ${name}`}</Text>
+        </Box>
+        <Box px={4} pb={4}>
+          <View style={{flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'flex-end'}}>
+            <Image style={{width: 40, height: 40}} source={require('./assets/phone.jpg')}/>
+            <Text style={{fontSize: 20}}>0{phone_number}</Text>
+          </View>
+        </Box>
+      </VStack>
+    </Box>
   )
 }
 
@@ -99,4 +115,4 @@ const styles = StyleSheet.create({
   addText: {},
 });
 
-export default DoctorList;
+export default DoctorsScreen;
