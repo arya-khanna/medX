@@ -37,8 +37,8 @@ const TabNavigator = () => {
       initialRouteName="Home"
       tabBarOptions={
         { showLabel: false ,
-        activeBackgroundColor: '#DBC2C6',
-       inactiveBackgroundColor: '#F5E6E8'
+          activeBackgroundColor: Colors.pink,
+          inactiveBackgroundColor: Colors.secondaryPink
         }
     }
       
@@ -52,6 +52,11 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/home.png')}          
                 />
           ),
+          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerTitleStyle: {
+            color: Colors.white,
+            fontWeight: 'bold',
+          }
         }}
       />
       <Tab.Screen
@@ -63,6 +68,11 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/cam.png')}          
                 />
           ),
+          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerTitleStyle: {
+            color: Colors.white,
+            fontWeight: 'bold',
+          }
         }}
       />
       {/* <Tab.Screen
@@ -76,10 +86,15 @@ const TabNavigator = () => {
                 />
 
           ),
+          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerTitleStyle: {
+            color: Colors.white,
+            fontWeight: 'bold',
+          }
         }}
       /> */}
       <Tab.Screen
-        name="Medicines"
+        name="My Prescriptions"
         component={MedicinesScreen}
         options={{
           tabBarLabel: 'Medicines',
@@ -87,6 +102,11 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/med.png')}          
                 />
           ),
+          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerTitleStyle: {
+            color: Colors.white,
+            fontWeight: 'bold',
+          }
         }}
       />
       <Tab.Screen
@@ -98,6 +118,11 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/share.png')}          
                 />
           ),
+          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerTitleStyle: {
+            color: Colors.white,
+            fontWeight: 'bold',
+          }
         }}
         
       />

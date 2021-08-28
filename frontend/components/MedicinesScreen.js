@@ -1,7 +1,7 @@
 import { Constants } from 'expo-camera';
 import React from 'react';
-import { StyleSheet, Image, Text, View, TouchableOpacity, ScrollView } from 'react-native';
-import { LongPressGestureHandler } from 'react-native-gesture-handler';
+import { StyleSheet, Image, Text, View, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
+import Colors from '../styles/Colors';
 import { api } from '../constants.js'
 
 class MedicinesScreen extends React.Component {
@@ -32,7 +32,12 @@ class MedicinesScreen extends React.Component {
     const { loading, medicines } = this.state;
     return (
       loading ?
-        <Text> Loading </Text>
+        <ActivityIndicator
+          style={{
+            alignContent: 'center'
+          }}
+          size="large" color={Colors.brandBlue}
+        />
         :
         <ScrollView>
           {medicines.map(medicine => <Medicine key={medicine.id} medicine={medicine} />)}
