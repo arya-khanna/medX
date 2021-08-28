@@ -8,6 +8,7 @@ import {
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Colors from "../styles/Colors";
 import styles from "../styles/GlobalStyles"
+import CameraScreen from './CameraScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,14 +24,6 @@ const SettingsScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Settings!</Text>
-    </View>
-  );
-}
-
-const CameraScreen = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Camera!</Text>
     </View>
   );
 }
