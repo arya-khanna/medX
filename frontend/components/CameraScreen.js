@@ -3,7 +3,8 @@ import {
   View,
   Text,
   StyleSheet, 
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native';
 import { Camera } from 'expo-camera';
 import {useState, useEffect, useRef} from "react";
@@ -46,13 +47,16 @@ const takePicture = async () => {
           <TouchableOpacity
             style={styles.snapButton}
             onPress = {() => takePicture()}>
-              <Text style={styles.text}> Snap! </Text>
+              <Image style={{width: 70, height: 70}} source={require('./assets/circle.png')}          
+                />
+             
             </TouchableOpacity>
 
             <TouchableOpacity
             style={styles.galleryButton}
             onPress = {() => loadGallery()}>
-              <Text style={styles.text}> Upload </Text>
+              <Image style={{width: 50, height: 50}} source={require('./assets/gallery.png')}          
+                />
             </TouchableOpacity>
         </View>
       </Camera>
@@ -72,17 +76,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'transparent',
     flexDirection: 'row',
-    margin: 20,
   },
   snapButton: {
-    flex: 0.1,
+    flex: 2,
     alignSelf: 'flex-end',
     alignItems: 'center',
+    marginLeft: 150,
+    marginBottom:20,
   },
   galleryButton: {
     flex: 2.0,
     alignSelf: 'flex-end',
     alignItems: 'center',
+    marginLeft: 60,
+    marginBottom: 30,
   },
   text: {
     fontSize: 18,
