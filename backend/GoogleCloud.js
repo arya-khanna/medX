@@ -2,14 +2,14 @@ const vision = require('@google-cloud/vision');
 const language = require('@google-cloud/language');
 const {Storage} = require('@google-cloud/storage');
 
-export const detectText = async (fileName) => {
+const detectText = async (fileName) => {
   const client = new vision.ImageAnnotatorClient();
   const [result] = await client.textDetection(fileName);
   const detections = result.textAnnotations;
   return detections.map(text => text);
 }
 
-export const verifyCredentials = async () => {
+const verifyCredentials = async () => {
   const storage = new Storage();
   try {
     const results = await storage.getBuckets();
@@ -25,17 +25,8 @@ export const verifyCredentials = async () => {
   }
 }
 
-export const analyzeEntities = async (string) => {
-	const client = new language.LanguageServiceClient();
-	const text = 'Your text to analyze, e.g. Hello, world!';
-	const document = {
-	  content: text,
-	  type: 'PLAIN_TEXT',
-	};
-	const [result] = await client.analyzeEntities({document});
-
+const analyzeEntities = async (string) => {
 	const entities = result.entities;
-
 	console.log('Entities:');
 	entities.forEach(entity => {
 	  console.log(entity.name);
@@ -45,3 +36,5 @@ export const analyzeEntities = async (string) => {
 	  }
 	});
 }
+
+module.exports = {analyzeEntities, verifyCredentials, detectText}
