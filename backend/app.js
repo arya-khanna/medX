@@ -13,7 +13,7 @@ app.use(fileUpload({
 app.get('/', (req, res) => {
   res.send("<h1>Welcome!</h1>");
   analyzeEntities('Howdy partner Arya! How you doing gimme drugs').then(ret => {
-	  console.log(ret[0])
+	  console.log(ret)
   })
 })
 
@@ -28,10 +28,10 @@ app.post('/upload-prescription-image', async (req, res) => {
       });
     } else {
       const prescription = req.files.prescription;
-      await prescription.mv('./uploads/' + prescription.name)
-
-
-      detectText("./img_1.png").then(ret => {
+	  const fileName = './uploads/' + prescription.name
+      await prescription.mv(fileName)
+	  
+      detectText(fileName).then(ret => {
         res.send(JSON.stringify({description: ret.map(element => element.description)}));
       }).catch(error => {
         res.send(JSON.stringify({error: error.toString()}));
