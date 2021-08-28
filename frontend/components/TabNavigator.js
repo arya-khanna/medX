@@ -15,6 +15,7 @@ import CameraScreen from './CameraScreen';
 // import Reminders from './Reminders';
 import MedicinesScreen from './MedicinesScreen';
 import MyStatusBar from './MyStatusBar';
+import DoctorList from './DoctorList'
 
 const Tab = createBottomTabNavigator();
 
@@ -115,7 +116,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Share"
-        component={ShareScreen}
+        component={DoctorList}
         options={{
           tabBarLabel: 'Share',
           tabBarIcon: () => (
