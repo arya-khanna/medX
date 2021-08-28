@@ -1,8 +1,9 @@
 import { Constants } from 'expo-camera';
 import React from 'react';
-import { StyleSheet, Image, Text, View, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import Colors from '../styles/Colors';
 import { api } from '../constants.js'
+import Spinner from './Spinner'
 
 class MedicinesScreen extends React.Component {
   constructor(props) {
@@ -31,13 +32,8 @@ class MedicinesScreen extends React.Component {
   render() {
     const { loading, medicines } = this.state;
     return (
-      loading ?
-        <ActivityIndicator
-          style={{
-            alignContent: 'center'
-          }}
-          size="large" color={Colors.brandBlue}
-        />
+      loading?
+        <Spinner/>
         :
         <ScrollView>
           {medicines.map(medicine => <Medicine key={medicine.id} medicine={medicine} />)}
