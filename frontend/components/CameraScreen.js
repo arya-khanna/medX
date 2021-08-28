@@ -7,7 +7,7 @@ import {
 const CameraScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Camera!</Text>
+      <Text>Camera!!</Text>
     </View>
   );
 }
