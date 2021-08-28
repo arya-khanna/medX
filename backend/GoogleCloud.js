@@ -27,18 +27,20 @@ const verifyCredentials = async () => {
 
 const analyzeEntities = async (string) => {
 	const client = new language.LanguageServiceClient();
-	const text = "Take twice daily, Panadol, Dr. Jiang, for your tummy. Pfizer Vaccinne 50mg stat!"
 	const document = {
-	  content: text,
+	  content: string,
 	  type: 'PLAIN_TEXT',
 	};
 	const [result] = await client.analyzeEntities({document});
 	const entities = result.entities;
 	console.log('Entities:');
+	const ret = new Array();
 	entities.forEach(entity => {
-	  console.log(entity.name);
-	  console.log(` - Type: ${entity.type}, Salience: ${entity.salience}`);
+		ret.push({name:entity.name,
+				  type:entity.type,
+			      salience:entity.salience});
 	});
+	return ret
 }
 
 module.exports = {analyzeEntities, verifyCredentials, detectText}

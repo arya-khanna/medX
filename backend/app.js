@@ -12,7 +12,9 @@ app.use(fileUpload({
 //requests
 app.get('/', (req, res) => {
   res.send("<h1>Welcome!</h1>");
-  analyzeEntities()
+  analyzeEntities('Howdy partner Arya! How you doing gimme drugs').then(ret => {
+	  console.log(ret[0])
+  })
 })
 
 app.post('/upload-prescription-image', async (req, res) => {
