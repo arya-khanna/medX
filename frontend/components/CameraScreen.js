@@ -50,14 +50,14 @@ export default function CameraScreen({setImage}) {
           <TouchableOpacity
             style={styles.snapButton}
             onPress = {() => takePicture()}>
-              <Image style={{width: 70, height: 70}} source={require('./assets/circle.png')}          
+              <Image style={{width: 70, height: 70}} source={require('./assets/circle.png')} alt="circle icon"          
                 />
             </TouchableOpacity>
 
             <TouchableOpacity
             style={styles.galleryButton}
             onPress = {() => loadGallery()}>
-              <Image style={{width: 50, height: 50}} source={require('./assets/gallery.png')}          
+              <Image style={{width: 50, height: 50}} source={require('./assets/gallery.png')} alt="gallery icon"          
                 />
             </TouchableOpacity>
         </View>

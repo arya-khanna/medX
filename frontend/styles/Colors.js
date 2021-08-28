@@ -7,5 +7,7 @@ export default {
     statusbar: '#eeeeee',
     pink: '#F5E6E8',
     secondaryPink: '#DBC2C6',
-    brandBlue: '#192A51'
+    brandBlue: '#192A51',
+    brandLavender: '#AAA1C8',
+    primaryLavender: '#967AA1'
 }

@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
 })
 
 app.post('/upload-prescription-image', async (req, res) => {
+  console.log('/upload-prescription-image')
   res.setHeader('Content-Type', 'application/json');
   try {
     if(!req.files) {
