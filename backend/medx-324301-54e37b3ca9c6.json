@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "medx-324301",
+  "private_key_id": "54e37b3ca9c62ee3aa634ef26f7c716b627171e8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCgiPv03Ze7K9MO\nNKLdhoMaHMaK3SgSlI5SVl/+fE98qMmKP30f6mLXc1/UWJDGl4vDG6P2S12I/6v0\nSL07h/bg0OOyLl1cf1xvPvKwJRksIiyjjeLi3952//FTA3Li+QZhyYE2r4LxGr80\n+e4FtkITlqWqjJS42byUEUCLRTuDe3bK/NJXcsIhu4z69wTmH6DlvJV6cmrwHx4c\njef3N6LwDFYfu0W9dW9JKd9pD/dKYuy88DxR6+q/TWTOGcYPrp6Lj3Vsi9hUWZiT\nLnG3OF4kemzekIYJI8SDcG5NPV/TGT0B4PGDsHTlBzpAVUQnd2qWEVZV9EOnSVjY\ndoCk17F9AgMBAAECggEAPTwTU5NlCbXNQ1lrmHFzN7YrO5Phcbjt0tV0t2dmkIf3\nnH7cNRzcSA+PyblgvAfZfXphIBUeYCAaUMugNwGFd7rmZ7SM0zgXo62QuATmpbGB\ncn+wQFchjiXRwRcLLy3LM+i/m4L2QQ6xSb1eABrF+J/ZoIUQQ7R2XMp54sXtThjj\nCDKy8RE2BXFfJ76YnigyQlFc+uIcdlXMn+5PPmRNHsb81hNsnyVoY0fOT89vcVqT\nz464H2CRLkmnRe05IonJ95Drc2f/qCQmeolBoEuS32oqBJ//w3VoK8sSmFOmUzxQ\n620/JMOpKBGjB1QjleOEXGakoh1Pv640ESxETlgahwKBgQDOartQcXEHXhELPpLk\n1Ei82EMti2+zruGx7jMvUH93BbrLIcVlUlFxK5j/QwhzdffWwfmKnKbX0WCqpGwn\niohK5l1vYFg2hDD2QKiUg8AbV8IQ+oUrgwbCucFQ8G7Wa0YjQXia0HoSFPPeHX0q\nsvlun5lwj+rS5jAw+iZCLBeNLwKBgQDHGNNCufxkrh2iyUqtwugbLX7R+lC4XdLs\n/DOe71xapHYIwaFdK0EUrHODyYnpRoOPKpeqH7lkMK4LNMoP2F7v0j66GEVRJXhb\nJJ8/txm/o1UTrmdhzN58mKozSekMUqAGIMpgYJfaEph8pTH40WOJCH81gR48RB9O\nzKPNczN5EwKBgEshkhhPkiJqXK3JEtJzah5CYQE81WWDa+bFmp/IHv0Fet3g5uZg\nNgCJK+ENVxAfihwC8n8/UYMQVK0Ht84UoFMS0kNtv+3n46JeGn4kDlJleN+RL9OM\nl3NdBT4epVkqJpdCh1FiPGxEcBcSiLJ3/k4DjWfpGkG1Qykwg6hmQBRFAoGAO1Pp\neCPF0xaTXDPRXhALbDXVaarGrPnAZcANfdnj0lrZlWhltkayYP+2eFnxD6Nkhp/x\ni89iRjm/UzWK1MfsGlizOm8LENAymi5CihD8yj9YlcHNqrYKwmQXq6rlmDdy2gCh\nbbC670/FQrdTOcrjdy0iAwaTxO+jyK5wTUN73iMCgYBY5Bvs+avpQMYjW+XDDMjO\n9C+fWZ/OuLZsqR/cj5VBMTIRxxIctXWM1q9NzJW+yO4zHFubhACA6B03/6Bz6RAI\nr7vmlgzJzW4CoUWHilwr2RNxTpUB/xxWmp9RTszBYvcsbdsRztnJTpqlvR86eeSw\nv7ccfs/YjDjCkZ8aS0QKng==\n-----END PRIVATE KEY-----\n",
+  "client_email": "vision-user@medx-324301.iam.gserviceaccount.com",
+  "client_id": "111102936342696480529",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vision-user%40medx-324301.iam.gserviceaccount.com"
+}
