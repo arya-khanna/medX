@@ -1,4 +1,4 @@
-const {detectText, verifyCredentials} = require('./GoogleCloud')
+const {detectText, verifyCredentials, analyzeEntities} = require('./GoogleCloud')
 const fileUpload = require('express-fileupload');
 const express = require('express')
 const app = express()
@@ -12,6 +12,7 @@ app.use(fileUpload({
 //requests
 app.get('/', (req, res) => {
   res.send("<h1>Welcome!</h1>");
+  analyzeEntities()
 })
 
 app.post('/upload-prescription-image', async (req, res) => {

@@ -26,14 +26,18 @@ const verifyCredentials = async () => {
 }
 
 const analyzeEntities = async (string) => {
+	const client = new language.LanguageServiceClient();
+	const text = "Take twice daily, Panadol, Dr. Jiang, for your tummy. Pfizer Vaccinne 50mg stat!"
+	const document = {
+	  content: text,
+	  type: 'PLAIN_TEXT',
+	};
+	const [result] = await client.analyzeEntities({document});
 	const entities = result.entities;
 	console.log('Entities:');
 	entities.forEach(entity => {
 	  console.log(entity.name);
 	  console.log(` - Type: ${entity.type}, Salience: ${entity.salience}`);
-	  if (entity.metadata && entity.metadata.wikipedia_url) {
-		console.log(` - Wikipedia URL: ${entity.metadata.wikipedia_url}`);
-	  }
 	});
 }
 
