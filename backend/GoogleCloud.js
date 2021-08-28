@@ -26,15 +26,21 @@ const verifyCredentials = async () => {
 }
 
 const analyzeEntities = async (string) => {
+	const client = new language.LanguageServiceClient();
+	const document = {
+	  content: string,
+	  type: 'PLAIN_TEXT',
+	};
+	const [result] = await client.analyzeEntities({document});
 	const entities = result.entities;
 	console.log('Entities:');
+	const ret = new Array();
 	entities.forEach(entity => {
-	  console.log(entity.name);
-	  console.log(` - Type: ${entity.type}, Salience: ${entity.salience}`);
-	  if (entity.metadata && entity.metadata.wikipedia_url) {
-		console.log(` - Wikipedia URL: ${entity.metadata.wikipedia_url}`);
-	  }
+		ret.push({name:entity.name,
+				  type:entity.type,
+			      salience:entity.salience});
 	});
+	return ret
 }
 
 module.exports = {analyzeEntities, verifyCredentials, detectText}
