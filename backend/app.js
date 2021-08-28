@@ -1,8 +1,12 @@
 const {detectText, verifyCredentials, analyzeEntities} = require('./GoogleCloud')
 const fileUpload = require('express-fileupload');
-const express = require('express')
+const express = require('express');
+const { Database } = require('sqlite3');
 const app = express()
 const port = 3000
+
+var sqlite3 = require('sqlite3').verbose()
+var db = new sqlite3.Database('db.sqlite3')
 
 //middlewares
 app.use(fileUpload({
@@ -34,7 +38,7 @@ app.post('/upload-prescription-image', async (req, res) => {
       detectText(fileName).then(async ret => {
         const description = ret.map(element => element.description)
         description[0] = description[0].replace(/\n/g, ". ");
-        const entities = await analyzeEntities(description[0])
+        const entities = await analyzeEntities("I am going to see Dr. Ritu Khanna")
  
         res.send({
           description: description,
@@ -47,6 +51,10 @@ app.post('/upload-prescription-image', async (req, res) => {
   } catch (err) {
     res.status(500).send(err);
   }
+});
+
+app.get("/prescriptions", () => {
+
 });
 
 app.listen(port, async () => {
