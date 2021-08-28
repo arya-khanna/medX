@@ -10,21 +10,20 @@ class MedicinesScreen extends React.Component {
     super(props)
     this.state = {
       medicines: [],
+      doctors: [],
       loading: true
     }
   }
 
   componentDidMount() {
     if (this.state.loading) {
-      console.log(api)
       fetch(`${api}/prescriptions`)
         .then(response => response.json())
         .then(data => {
-          this.setState({ medicines: data, loading: false });
-          console.log("loaded");
+          this.setState({ medicines: data.prescriptions, doctors: data.doctors, loading: false });
         })
         .catch(err => {
-        console.log(err);
+          console.log(err);
       })
     }
   }

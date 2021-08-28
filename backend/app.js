@@ -26,7 +26,6 @@ app.get('/', (req, res) => {
 
 app.post('/upload-prescription-image', async (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-
   try {
     if(!req.files) {
       res.send({
@@ -57,13 +56,31 @@ app.post('/upload-prescription-image', async (req, res) => {
 });
 
 app.get("/prescriptions", (req, res) => {
-  console.log("/prescriptions")
-  db.all("SELECT * FROM prescriptions", (err, rows) => {
+  res.setHeader('Content-Type', 'application/json');
+  db.all("SELECT * FROM prescriptions", (err, prescriptions) => {
     if (err) {
-      res.status(500).send(err);
-    } else {
-      res.send(rows)
-    }      
+      return res.status(500).send(err);
+    }
+    
+    db.all("SELECT * FROM doctors", (err, doctors) => {
+      if (err) {
+          return res.status(500).send(err);
+      }
+      for (let i = 0; i < prescriptions.length; i++) {
+        let found = false
+        for (let j = 0; j < doctors.length; j++) {
+          if (prescriptions[i].doctor_id == doctors[j].id) {
+            prescriptions[i].doctor_name = doctors[j].name
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          prescriptions[i].doctor_name = "UNKNOWN"
+        }
+      }
+      return res.status(200).send({ prescriptions: prescriptions, doctors: doctors})
+    })
   });
 });
 
