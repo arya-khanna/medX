@@ -4,6 +4,7 @@ import { StyleSheet, Image, Text, View, TouchableOpacity, ScrollView } from 'rea
 import Colors from '../styles/Colors';
 import { api } from '../constants.js'
 import Spinner from './Spinner'
+import MyStatusBar from './MyStatusBar';
 
 class MedicinesScreen extends React.Component {
   constructor(props) {
@@ -31,12 +32,16 @@ class MedicinesScreen extends React.Component {
   render() {
     const { loading, medicines } = this.state;
     return (
-      loading?
-        <Spinner/>
-        :
-        <ScrollView>
-          {medicines.map(medicine => <Medicine key={medicine.id} medicine={medicine} />)}
-        </ScrollView>
+      <View>
+      <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
+        {loading ?
+          <Spinner />
+          :
+          <ScrollView>
+            {medicines.map(medicine => <Medicine key={medicine.id} medicine={medicine} />)}
+          </ScrollView>
+        }
+      </View>
     );
   }  
 };

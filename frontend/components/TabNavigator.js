@@ -4,7 +4,9 @@ import {
   View,
   TouchableOpacity,
   Text,
-  Image
+  Image,
+  StatusBar,
+  SafeAreaView
 } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Colors from "../styles/Colors";
@@ -12,12 +14,14 @@ import styles from "../styles/GlobalStyles"
 import CameraScreen from './CameraScreen';
 // import Reminders from './Reminders';
 import MedicinesScreen from './MedicinesScreen';
+import MyStatusBar from './MyStatusBar';
 
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
       <Text>Home!</Text>
     </View>
   );
@@ -26,6 +30,7 @@ const HomeScreen = () => {
 const ShareScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
       <Text>Settings!</Text>
     </View>
   );
@@ -41,7 +46,6 @@ const TabNavigator = () => {
           inactiveBackgroundColor: Colors.secondaryPink
         }
     }
-      
     >
       <Tab.Screen
         name="Home"
