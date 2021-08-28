@@ -3,7 +3,8 @@ import React from 'react';
 import {
   View,
   TouchableOpacity,
-  Text
+  Text,
+  Image
 } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Colors from "../styles/Colors";
@@ -20,7 +21,23 @@ const HomeScreen = () => {
   );
 }
 
-const SettingsScreen = () => {
+const RemindersScreen = () => {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const MedicinesScreen = () => {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Settings!</Text>
+    </View>
+  );
+}
+
+const ShareScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Settings!</Text>
@@ -31,10 +48,73 @@ const SettingsScreen = () => {
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      tabBar={(props) => <MyTabBar {...props} />}>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Camera" component={CameraScreen} />
-      <Tab.Screen name="Medications" component={SettingsScreen} />
+      initialRouteName="Home"
+      tabBarOptions={
+        { showLabel: false ,
+        activeBackgroundColor: '#DBC2C6',
+       inactiveBackgroundColor: '#F5E6E8'
+        }
+    }
+      
+    >
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: () => (
+            <Image style={{width: 40, height: 40}} source={require('./assets/home.png')}          
+                />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Camera"
+        component={CameraScreen}
+        options={{
+          tabBarLabel: 'Camera',
+          tabBarIcon: () => (
+            <Image style={{width: 40, height: 40}} source={require('./assets/cam.png')}          
+                />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Reminders"
+        component={RemindersScreen}
+        options={{
+          tabBarLabel: 'Reminders',
+          tabBarIcon: () => (
+        
+            <Image style={{width: 40, height: 40}} source={require('./assets/rem.png')}          
+                />
+
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Medicines"
+        component={MedicinesScreen}
+        options={{
+          tabBarLabel: 'Medicines',
+          tabBarIcon: () => (
+            <Image style={{width: 40, height: 40}} source={require('./assets/med.png')}          
+                />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Share"
+        component={ShareScreen}
+        options={{
+          tabBarLabel: 'Share',
+          tabBarIcon: () => (
+            <Image style={{width: 40, height: 40}} source={require('./assets/share.png')}          
+                />
+          ),
+        }}
+        
+      />
     </Tab.Navigator>
   );
 }
