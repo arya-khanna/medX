@@ -1,6 +1,6 @@
 import { Constants } from 'expo-camera';
 import React from 'react';
-import { StyleSheet, Image, Text, View, TouchableOpacity, TextInput } from 'react-native';
+import { StyleSheet, Image, Text, View, TouchableOpacity, ScrollView } from 'react-native';
 import { LongPressGestureHandler } from 'react-native-gesture-handler';
 import { api } from '../constants.js'
 
@@ -30,12 +30,13 @@ class MedicinesScreen extends React.Component {
 
   render() {
     const { loading, medicines } = this.state;
-    console.log(medicines);
     return (
       loading ?
         <Text> Loading </Text>
         :
-        medicines.map(medicine => <Medicine key={medicine.id} medicine={medicine}/>)
+        <ScrollView>
+          {medicines.map(medicine => <Medicine key={medicine.id} medicine={medicine} />)}
+        </ScrollView>
     );
   }  
 };
@@ -51,10 +52,10 @@ const Medicine = ({ medicine }) => {
         <Image source={{uri: `${api}/prescription/${id}/file/${filename}`}}
           style={{marginTop: 20, width: 400, height: 300}} />
           <View style={{marginTop: 30}}>
-            <Text style={styles.details}>Doctor Name: Dr. Strange</Text>
-            <Text style={styles.details}>Frequency: Once a day</Text>
-            <Text style={styles.details}>Date of Prescription: 27 April 2021</Text>
-            <Text style={styles.details}>Description: Perindopril is a medication used to treat high blood pressure, heart failure, or stable coronary artery disease.</Text>
+            <Text style={styles.details}>Doctor Name: {doctor_name}</Text>
+            <Text style={styles.details}>Frequency: {frequency}</Text>
+            <Text style={styles.details}>Date of Prescription: {date_of_prescription}</Text>
+            <Text style={styles.details}>Description: {description}</Text>
           </View>
       </View>
   )
