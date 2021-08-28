@@ -5,6 +5,7 @@ const { Database } = require('sqlite3');
 const app = express()
 const port = 3000
 const path = require('path');
+const fs = require('fs')
 
 var sqlite3 = require('sqlite3').verbose()
 var db = new sqlite3.Database('db.sqlite3')
@@ -39,7 +40,7 @@ app.post('/upload-prescription-image', async (req, res) => {
       detectText(fileName).then(async ret => {
         const description = ret.map(element => element.description)
         description[0] = description[0].replace(/\n/g, ". ");
-        const entities = await analyzeEntities("I am going to see Dr. Ritu Khanna")
+        const entities = await analyzeEntities(description[0])
  
         res.send({
           description: description,
@@ -63,6 +64,31 @@ app.get("/prescriptions", (req, res) => {
     }      
   });
 });
+
+app.post("/prescription", (req, res) => {
+  const name = req.body.name
+  const fileName = req.body.fileName;
+
+  if (!fs.existsSync(path.join(__dirname, "uploads/" + fileName))) {
+    return res.status(400).send({
+      error: "invalid request"
+    })
+  }
+  
+  db.run("INSERT INTO prescriptions(name, filename) VALUES(?, ?)",
+    [name, fileName], function(err, result) {
+      console.log(result);
+      if (err) {
+        return res.status(400).send(err);
+      }
+      return res.status(201).send(
+        {
+          id: 1,
+          name: name,
+          filename: fileName
+        })
+  });
+})
 
 app.get('/prescription/:id/file/:name', (req, res, next) => {
   var id = req.params.uid
