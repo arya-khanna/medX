@@ -28,11 +28,16 @@ app.post('/upload-prescription-image', async (req, res) => {
       });
     } else {
       const prescription = req.files.prescription;
-	  const fileName = './uploads/' + prescription.name
+	    const fileName = './uploads/' + prescription.name
       await prescription.mv(fileName)
 	  
-      detectText(fileName).then(ret => {
-        res.send(JSON.stringify({description: ret.map(element => element.description)}));
+      detectText(fileName).then(async ret => {
+        const entities = await analyzeEntities('Howdy partner Arya! How you doing gimme drugs')
+ 
+        res.send({
+          description: ret.map(element => element.description),
+          entities: entities
+        });
       }).catch(error => {
         res.send(JSON.stringify({error: error.toString()}));
       })
