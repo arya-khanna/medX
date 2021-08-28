@@ -1,14 +1,14 @@
 const vision = require('@google-cloud/vision');
 const {Storage} = require('@google-cloud/storage');
 
-detectText = async (fileName) => {
+export const detectText = async (fileName) => {
   const client = new vision.ImageAnnotatorClient();
   const [result] = await client.textDetection(fileName);
   const detections = result.textAnnotations;
   return detections.map(text => text);
 }
 
-verifyCredentials = async () => {
+export const verifyCredentials = async () => {
   const storage = new Storage();
   try {
     const results = await storage.getBuckets();
@@ -24,4 +24,6 @@ verifyCredentials = async () => {
   }
 }
 
-module.exports = {detectText, verifyCredentials}
+export const analyzeEntities = async (string) => {
+
+}
