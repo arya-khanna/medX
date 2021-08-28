@@ -33,7 +33,6 @@ const analyzeEntities = async (string) => {
 	};
 	const [result] = await client.analyzeEntities({document});
 	const entities = result.entities;
-	console.log('Entities:');
 	const ret = new Array();
 	entities.forEach(entity => {
 		ret.push({name:entity.name,
