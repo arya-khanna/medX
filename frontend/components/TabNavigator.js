@@ -11,6 +11,7 @@ import Colors from "../styles/Colors";
 import styles from "../styles/GlobalStyles"
 import CameraScreen from './CameraScreen';
 import Reminders from './Reminders';
+import MedicinesScreen from './MedicinesScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,15 +19,6 @@ const HomeScreen = () => {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Home!</Text>
-    </View>
-  );
-}
-
-
-const MedicinesScreen = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
     </View>
   );
 }
