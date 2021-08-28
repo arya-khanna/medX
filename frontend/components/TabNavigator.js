@@ -41,10 +41,16 @@ const TabNavigator = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      tabBarOptions={
-        { showLabel: false ,
-          activeBackgroundColor: Colors.pink,
-          inactiveBackgroundColor: Colors.secondaryPink
+      screenOptions={
+        {
+          "tabBarActiveBackgroundColor": "#F5E6E8",
+          "tabBarInactiveBackgroundColor": "#DBC2C6",
+          "tabBarShowLabel": false,
+          "tabBarStyle": [{
+              "display": "flex"
+            },
+            null
+          ]
         }
     }
     >

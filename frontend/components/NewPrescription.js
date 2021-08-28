@@ -27,15 +27,12 @@ export default class NewPrescription extends React.Component {
     }
 
     createFormData = (image) => {
-        
         const formData = new FormData();
         formData.append('prescription', {
             uri : image.uri,
             type: 'image/jpg',
             name: image.uri.split("/").pop()
         });
-
-        console.log(formData)
 
         return formData;
     };
@@ -49,7 +46,8 @@ export default class NewPrescription extends React.Component {
             },
         })
         .then((response) => response.json())
-        .then((response) => {
+            .then((response) => {
+            console.log("GOT IT")
             console.log('response', response);
         })
         .catch((error) => {
