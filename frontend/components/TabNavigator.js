@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Colors from "../styles/Colors";
 import styles from "../styles/GlobalStyles"
 import CameraScreen from './CameraScreen';
+import Prescriptions from './Prescriptions';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,6 +36,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Camera" component={CameraScreen} />
       <Tab.Screen name="Medications" component={SettingsScreen} />
+      {/* <Tab.Screen name="Prescriptions" component={Prescriptions} /> */}
     </Tab.Navigator>
   );
 }
