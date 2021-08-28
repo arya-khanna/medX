@@ -4,6 +4,7 @@ const express = require('express');
 const { Database } = require('sqlite3');
 const app = express()
 const port = 3000
+const path = require('path');
 
 var sqlite3 = require('sqlite3').verbose()
 var db = new sqlite3.Database('db.sqlite3')
@@ -53,9 +54,37 @@ app.post('/upload-prescription-image', async (req, res) => {
   }
 });
 
-app.get("/prescriptions", () => {
-
+app.get("/prescriptions", (req, res) => {
+  db.all("SELECT * FROM prescriptions", (err, rows) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.send(rows)
+    }      
+  });
 });
+
+app.get('/prescription/:id/file/:name', (req, res, next) => {
+  var id = req.params.uid
+  var fileName = req.params.name
+
+  var options = {
+    root: path.join(__dirname, 'uploads'),
+    dotfiles: 'deny',
+    headers: {
+      'x-timestamp': Date.now(),
+      'x-sent': true
+    }
+  }
+
+  res.sendFile(fileName, options, function (err) {
+    if (err) {
+      next(err)
+    } else {
+      console.log('Sent:', fileName)
+    }
+  })
+})
 
 app.listen(port, async () => {
   console.log("Verifying credentials")
