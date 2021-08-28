@@ -6,11 +6,12 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { Camera } from 'expo-camera';
-import { useState, useEffect, useRef } from "react";
-
+import {useState, useEffect, useRef} from "react";
 export default function CameraScreen() {
+  
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+  const ref = useRef(null)
 
   useEffect(() => {
     (async () => {
@@ -18,26 +19,24 @@ export default function CameraScreen() {
       setHasPermission(status === 'granted');
     })();
   }, []);
-  
-  const takePicture = async () => {
-    if (this.camera) {
-      const options = {quality: 1, base64: true};
-      const data = await this.camera.takePictureAsync(options);
-      console.log(data);
-    }
-  };
+
+const takePicture = async () => {
+    const photo = await ref.current.takePictureAsync()
+    console.debug(photo)
+    console.log('success')
+  }
+
 
   if (hasPermission === null) {
     return <View />;
   }
-
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
-
   return (
+    
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type} >
+      <Camera style={{ flex: 1 }} type={type} ref={ref}>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.snapButton}
