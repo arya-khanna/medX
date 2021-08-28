@@ -15,6 +15,7 @@ import CameraScreen from './CameraScreen';
 // import Reminders from './Reminders';
 import MedicinesScreen from './MedicinesScreen';
 import MyStatusBar from './MyStatusBar';
+import NewPrescription from './NewPrescription';
 
 const Tab = createBottomTabNavigator();
 
@@ -71,6 +72,21 @@ const TabNavigator = () => {
           tabBarIcon: () => (
             <Image style={{width: 40, height: 40}} source={require('./assets/cam.png')}          
                 />
+          ),
+          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerTitleStyle: {
+            color: Colors.white,
+            fontWeight: 'bold',
+          }
+        }}
+      />
+      <Tab.Screen
+        name="Add A New Prescription"
+        component={NewPrescription}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: () => (
+            <Text>NEW</Text>
           ),
           headerStyle: { backgroundColor: Colors.brandBlue },
           headerTitleStyle: {

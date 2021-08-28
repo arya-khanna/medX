@@ -8,10 +8,11 @@ import {
 } from 'react-native';
 import { Camera } from 'expo-camera';
 import {useState, useEffect, useRef} from "react";
-export default function CameraScreen() {
+export default function CameraScreen({setImage}) {
   
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
+  const [photo, setPhoto] = useState(null);
   const ref = useRef(null)
 
   useEffect(() => {
@@ -20,27 +21,29 @@ export default function CameraScreen() {
       setHasPermission(status === 'granted');
     })();
   }, []);
-
-const takePicture = async () => {
+  
+  const takePicture = async () => {
     const photo = await ref.current.takePictureAsync()
-    console.debug(photo)
-    console.log('success')
+    setImage(photo)
   }
 
   const loadGallery = async () => {
     const photo = await ref.current.takePictureAsync()
-    console.log('success')
+    console.log("DONE")
+    setImage(photo)
   }
-
-
+  
   if (hasPermission === null) {
     return <View />;
   }
+  
   if (hasPermission === false) {
     return <Text>No access to camera</Text>;
   }
+
   return (
-    
+    photo != null ?
+      <View> Photo </View> :
     <View style={styles.container}>
       <Camera style={{ flex: 1 }} type={type} ref={ref}>
         <View style={styles.buttonContainer}>
@@ -49,7 +52,6 @@ const takePicture = async () => {
             onPress = {() => takePicture()}>
               <Image style={{width: 70, height: 70}} source={require('./assets/circle.png')}          
                 />
-             
             </TouchableOpacity>
 
             <TouchableOpacity
