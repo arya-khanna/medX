@@ -10,6 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Colors from "../styles/Colors";
 import styles from "../styles/GlobalStyles"
 import CameraScreen from './CameraScreen';
+import Reminders from './Reminders';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,13 +22,6 @@ const HomeScreen = () => {
   );
 }
 
-const RemindersScreen = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Settings!</Text>
-    </View>
-  );
-}
 
 const MedicinesScreen = () => {
   return (
@@ -81,7 +75,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Reminders"
-        component={RemindersScreen}
+        component={Reminders}
         options={{
           tabBarLabel: 'Reminders',
           tabBarIcon: () => (
