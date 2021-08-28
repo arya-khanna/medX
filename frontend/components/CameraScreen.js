@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     flex: 2,
     alignSelf: 'flex-end',
     alignItems: 'center',
-    marginLeft: 150,
+    marginLeft: 146,
     marginBottom:20,
   },
   galleryButton: {
