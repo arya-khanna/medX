@@ -5,8 +5,8 @@ const port = 3000
 
 app.get('/', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  detectText().then(text => {
-    res.send(JSON.stringify({detectedText: text}));
+  detectText("./img_1.png").then(ret => {
+    res.send(JSON.stringify({description: ret.map(element => element.description)}));
   }).catch(error => {
     res.send(JSON.stringify({error: error.toString()}));
   })
