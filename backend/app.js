@@ -11,15 +11,12 @@ app.use(fileUpload({
 
 //requests
 app.get('/', (req, res) => {
-  res.setHeader('Content-Type', 'application/json');
-  detectText("./img_1.png").then(ret => {
-    res.send(JSON.stringify({description: ret.map(element => element.description)}));
-  }).catch(error => {
-    res.send(JSON.stringify({error: error.toString()}));
-  })
+  res.send("<h1>Welcome!</h1>")
 })
 
 app.post('/upload-prescription-image', async (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+
   try {
     if(!req.files) {
       res.send({
@@ -27,8 +24,15 @@ app.post('/upload-prescription-image', async (req, res) => {
         message: 'No file uploaded'
       });
     } else {
-      console.log(req.files);
-      res.send("OH Baby!")
+      const prescription = req.files.prescription;
+      await prescription.mv('./uploads/' + prescription.name)
+
+
+      detectText("./img_1.png").then(ret => {
+        res.send(JSON.stringify({description: ret.map(element => element.description)}));
+      }).catch(error => {
+        res.send(JSON.stringify({error: error.toString()}));
+      })
     }
   } catch (err) {
     res.status(500).send(err);
