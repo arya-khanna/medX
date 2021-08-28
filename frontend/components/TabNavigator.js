@@ -33,8 +33,8 @@ const TabNavigator = () => {
     <Tab.Navigator
       tabBar={(props) => <MyTabBar {...props} />}>
       <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Shop" component={CameraScreen} />
-      <Tab.Screen name="Favorite" component={SettingsScreen} />
+      <Tab.Screen name="Camera" component={CameraScreen} />
+      <Tab.Screen name="Medications" component={SettingsScreen} />
     </Tab.Navigator>
   );
 }
