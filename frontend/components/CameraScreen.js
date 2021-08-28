@@ -26,6 +26,11 @@ const takePicture = async () => {
     console.log('success')
   }
 
+  const loadGallery = async () => {
+    const photo = await ref.current.takePictureAsync()
+    console.log('success')
+  }
+
 
   if (hasPermission === null) {
     return <View />;
@@ -42,6 +47,12 @@ const takePicture = async () => {
             style={styles.snapButton}
             onPress = {() => takePicture()}>
               <Text style={styles.text}> Snap! </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+            style={styles.galleryButton}
+            onPress = {() => loadGallery()}>
+              <Text style={styles.text}> Upload </Text>
             </TouchableOpacity>
         </View>
       </Camera>
@@ -65,6 +76,11 @@ const styles = StyleSheet.create({
   },
   snapButton: {
     flex: 0.1,
+    alignSelf: 'flex-end',
+    alignItems: 'center',
+  },
+  galleryButton: {
+    flex: 2.0,
     alignSelf: 'flex-end',
     alignItems: 'center',
   },
