@@ -1,0 +1,412 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20210828.205237.3500.0.001.json",
+    "dumpEventTime": "2021-08-28T20:52:37Z",
+    "dumpEventTimeStamp": "1630147957166",
+    "processId": 3500,
+    "cwd": "C:\\Users\\Totrasmek\\Documents\\GitHub\\medX\\backend\\spellcheck",
+    "commandLine": [
+      "node",
+      "test.js"
+    ],
+    "nodejsVersion": "v12.13.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.13.0",
+      "v8": "7.7.299.13-node.12",
+      "uv": "1.32.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "5",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1d",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "lts": "Erbium",
+      "headersUrl": "https://nodejs.org/download/release/v12.13.0/node-v12.13.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.13.0/node-v12.13.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.13.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.19043",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 3297734,
+        "nice": 0,
+        "sys": 3188390,
+        "idle": 32916937,
+        "irq": 1160453
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 2073031,
+        "nice": 0,
+        "sys": 757140,
+        "idle": 36572515,
+        "irq": 122906
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 4645390,
+        "nice": 0,
+        "sys": 1751421,
+        "idle": 33005859,
+        "irq": 40812
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 3895296,
+        "nice": 0,
+        "sys": 944421,
+        "idle": 34562953,
+        "irq": 18859
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 3900578,
+        "nice": 0,
+        "sys": 1430140,
+        "idle": 34071953,
+        "irq": 32531
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 2094734,
+        "nice": 0,
+        "sys": 845562,
+        "idle": 36462375,
+        "irq": 23953
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 2951125,
+        "nice": 0,
+        "sys": 1190093,
+        "idle": 35261453,
+        "irq": 31562
+      },
+      {
+        "model": "Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz",
+        "speed": 1992,
+        "user": 2815593,
+        "nice": 0,
+        "sys": 877796,
+        "idle": 35709281,
+        "irq": 15890
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "Ethernet 5",
+        "internal": false,
+        "mac": "02:33:79:74:06:13",
+        "address": "fe80::3c63:7c56:a4ed:21cb",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 12
+      },
+      {
+        "name": "Ethernet 5",
+        "internal": false,
+        "mac": "02:33:79:74:06:13",
+        "address": "192.168.85.59",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "Loopback Pseudo-Interface 1",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      }
+    ],
+    "host": "LAPTOP-JRI3DFC1"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff78ef81389",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+10873"
+    },
+    {
+      "pc": "0x00007ff78ef857cc",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+28348"
+    },
+    {
+      "pc": "0x00007ff78ef84778",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+24168"
+    },
+    {
+      "pc": "0x00007ff78f07332b",
+      "symbol": "v8::base::CPU::has_sse+37723"
+    },
+    {
+      "pc": "0x00007ff78f876f4e",
+      "symbol": "v8::Isolate::ReportExternalAllocationLimitReached+94"
+    },
+    {
+      "pc": "0x00007ff78f85ef91",
+      "symbol": "v8::SharedArrayBuffer::Externalize+833"
+    },
+    {
+      "pc": "0x00007ff78f72c85c",
+      "symbol": "v8::internal::Heap::EphemeronKeyWriteBarrierFromCode+1436"
+    },
+    {
+      "pc": "0x00007ff78f737c00",
+      "symbol": "v8::internal::Heap::ProtectUnprotectedMemoryChunks+1312"
+    },
+    {
+      "pc": "0x00007ff78f734734",
+      "symbol": "v8::internal::Heap::PageFlagsAreConsistent+3204"
+    },
+    {
+      "pc": "0x00007ff78f729fc3",
+      "symbol": "v8::internal::Heap::CollectGarbage+1283"
+    },
+    {
+      "pc": "0x00007ff78f728794",
+      "symbol": "v8::internal::Heap::AddRetainedMap+2356"
+    },
+    {
+      "pc": "0x00007ff78f749a65",
+      "symbol": "v8::internal::Factory::NewFillerObject+53"
+    },
+    {
+      "pc": "0x00007ff78f4b6239",
+      "symbol": "v8::internal::interpreter::JumpTableTargetOffsets::iterator::operator=+4057"
+    },
+    {
+      "pc": "0x00007ff78fca2c6d",
+      "symbol": "v8::internal::SetupIsolateDelegate::SetupHeap+567949"
+    },
+    {
+      "pc": "0x0000014c9160445a",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2186018816,
+    "totalCommittedMemory": 2186018816,
+    "usedMemory": 2154946736,
+    "availableMemory": 39569872,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 262144,
+        "capacity": 261872,
+        "used": 32296,
+        "available": 229576
+      },
+      "new_space": {
+        "memorySize": 33554432,
+        "committedMemory": 33554432,
+        "capacity": 16759808,
+        "used": 6147376,
+        "available": 10612432
+      },
+      "old_space": {
+        "memorySize": 2066591744,
+        "committedMemory": 2066591744,
+        "capacity": 2063963816,
+        "used": 2063792240,
+        "available": 171576
+      },
+      "code_space": {
+        "memorySize": 425984,
+        "committedMemory": 425984,
+        "capacity": 172320,
+        "used": 172320,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 528384,
+        "committedMemory": 528384,
+        "capacity": 268160,
+        "used": 268160,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 84606976,
+        "committedMemory": 84606976,
+        "capacity": 84530792,
+        "used": 84530792,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 16759808,
+        "used": 0,
+        "available": 16759808
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 47.312,
+    "kernelCpuSeconds": 0.984,
+    "cpuConsumptionPercent": 112.316,
+    "maxRss": 2252808192,
+    "pageFaults": {
+      "IORequired": 614887,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 193,
+      "writes": 6
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "": "::=::\\",
+    "": "C:=C:\\Users\\Totrasmek\\Documents\\GitHub\\medX\\backend\\spellcheck",
+    "": "ExitCode=00000000",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\Totrasmek\\AppData\\Roaming",
+    "CommonProgramFiles": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "LAPTOP-JRI3DFC1",
+    "ComSpec": "C:\\WINDOWS\\system32\\cmd.exe",
+    "configsetroot": "C:\\WINDOWS\\ConfigSetRoot",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "FC2PATH": "C:\\Program Files\\Point Grey Research\\FlyCapture2\\bin64",
+    "GOOGLE_APPLICATION_CREDENTIALS": "C:\\Users\\Totrasmek\\Documents\\programming\\java\\medx-324301-54e37b3ca9c6.json",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\Totrasmek",
+    "JAVA_HOME": "C:\\Program Files\\Java\\jdk-14.0.1",
+    "LOCALAPPDATA": "C:\\Users\\Totrasmek\\AppData\\Local",
+    "LOGONSERVER": "\\\\LAPTOP-JRI3DFC1",
+    "MCC_INCLUDE": "C:\\Program Files (x86)\\Microchip\\mplabc18\\v3.46\\h",
+    "NIDAQmxSwitchDir": "C:\\Program Files (x86)\\National Instruments\\NI-DAQ\\Switch\\",
+    "NIEXTCCOMPILERSUPP": "C:\\Program Files (x86)\\National Instruments\\Shared\\ExternalCompilerSupport\\C\\",
+    "NUMBER_OF_PROCESSORS": "8",
+    "OneDrive": "C:\\Users\\Totrasmek\\OneDrive",
+    "OneDriveConsumer": "C:\\Users\\Totrasmek\\OneDrive",
+    "OS": "Windows_NT",
+    "OV_NI_PLUGIN_DIR": "C:\\Program Files\\National Instruments\\Shared\\OpenVINO\\",
+    "Path": "C:\\Program Files (x86)\\Microchip\\mplabc18\\v3.46\\mpasm;C:\\Program Files (x86)\\Microchip\\mplabc18\\v3.46\\bin;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\National Instruments\\Shared\\OpenVINO\\;C:\\Program Files\\Java\\jdk-14.0.1\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\Wolfram Research\\WolframScript\\;C:\\Program Files\\MATLAB\\R2020a\\bin;C:\\Program Files\\MATLAB\\R2018b\\bin;C:\\MinGW\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\WINDOWS\\System32\\OpenSSH\\;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\PuTTY\\;C;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\120\\DTS\\Binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files\\Point Grey Research\\FlyCapture2\\bin64;C:\\Program Files\\Point Grey Research\\FlyCapture2\\bin64\\vs2013;C:\\Program Files\\Point Grey Research\\FlyCapture2\\bin64\\vs2015;C:\\Windows\\Microsoft.NET\\Framework64\\v4.0.30319;C:\\Program Files\\seabreeze-3.0.11\\SeaBreeze\\os-support\\windows\\WinDDK_Includes;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\seabreeze-3.0.11\\SeaBreeze\\lib;C:\\Program Files\\CMake\\bin;C:\\Program Files (x86)\\National Instruments\\Shared\\LabVIEW CLI;C:\\Program Files (x86)\\IVI Foundation\\VISA\\WinNT\\Bin\\;C:\\Program Files\\IVI Foundation\\VISA\\Win64\\Bin\\;C:\\Program Files (x86)\\IVI Foundation\\VISA\\WinNT\\Bin;C:\\Users\\Totrasmek\\AppData\\Local\\Programs\\Python\\Python39\\Scripts;C:\\Program Files\\nodejs\\;C:\\Program Files (x86)\\apache-maven-3.8.2\\bin;C:\\Users\\Totrasmek\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Totrasmek\\AppData\\Local\\atom\\bin;C:\\Users\\Totrasmek\\AppData\\Local\\GitHubDesktop\\bin;C:\\Users\\Totrasmek\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\Point Grey Research\\FlyCapture2\\lib64\\C;C:\\Users\\Totrasmek\\AppData\\Local\\Programs\\Python\\Python39;C:\\Users\\Totrasmek\\AppData\\Roaming\\npm",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 142 Stepping 11, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "8e0b",
+    "ProgramData": "C:\\ProgramData",
+    "ProgramFiles": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PROMPT": "$P$G",
+    "PSModulePath": "%ProgramFiles%\\WindowsPowerShell\\Modules;C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\120\\Tools\\PowerShell\\Modules\\",
+    "PUBLIC": "C:\\Users\\Public",
+    "SW_SIM_HYDRA": "C:\\Program Files\\Common Files\\SolidWorks Shared\\Simulation Worker Agent\\",
+    "SW_SIM_MPIT": "INTELMPI",
+    "SW_SIM_TEMP": "C:\\ProgramData\\SOLIDWORKS\\SW_net_sim_temp\\",
+    "SystemDrive": "C:",
+    "SystemRoot": "C:\\WINDOWS",
+    "TEMP": "C:\\Users\\TOTRAS~1\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\TOTRAS~1\\AppData\\Local\\Temp",
+    "TURBOACTIVATE_LIBRARY": "C:\\Program Files\\Ocean Insight\\OceanView/oceanview/oceanview/modules/lib",
+    "USERDOMAIN": "LAPTOP-JRI3DFC1",
+    "USERDOMAIN_ROAMINGPROFILE": "LAPTOP-JRI3DFC1",
+    "USERNAME": "Totrasmek",
+    "USERPROFILE": "C:\\Users\\Totrasmek",
+    "VS110COMNTOOLS": "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\Common7\\Tools\\",
+    "VXIPNPPATH": "C:\\Program Files (x86)\\IVI Foundation\\VISA\\",
+    "VXIPNPPATH64": "C:\\Program Files\\IVI Foundation\\VISA\\",
+    "windir": "C:\\WINDOWS"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\WINDOWS\\SYSTEM32\\ntdll.dll",
+    "C:\\WINDOWS\\System32\\KERNEL32.DLL",
+    "C:\\WINDOWS\\System32\\KERNELBASE.dll",
+    "C:\\WINDOWS\\System32\\WS2_32.dll",
+    "C:\\WINDOWS\\System32\\RPCRT4.dll",
+    "C:\\WINDOWS\\System32\\ADVAPI32.dll",
+    "C:\\WINDOWS\\System32\\msvcrt.dll",
+    "C:\\WINDOWS\\System32\\sechost.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dbghelp.dll",
+    "C:\\WINDOWS\\System32\\ucrtbase.dll",
+    "C:\\WINDOWS\\System32\\USER32.dll",
+    "C:\\WINDOWS\\System32\\win32u.dll",
+    "C:\\WINDOWS\\System32\\GDI32.dll",
+    "C:\\WINDOWS\\System32\\gdi32full.dll",
+    "C:\\WINDOWS\\System32\\msvcp_win.dll",
+    "C:\\WINDOWS\\System32\\PSAPI.DLL",
+    "C:\\WINDOWS\\System32\\CRYPT32.dll",
+    "C:\\WINDOWS\\System32\\bcrypt.dll",
+    "C:\\WINDOWS\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\USERENV.dll",
+    "C:\\WINDOWS\\SYSTEM32\\WINMM.dll",
+    "C:\\WINDOWS\\System32\\IMM32.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\powrprof.dll",
+    "C:\\WINDOWS\\SYSTEM32\\UMPDC.dll",
+    "C:\\WINDOWS\\system32\\uxtheme.dll",
+    "C:\\WINDOWS\\System32\\combase.dll",
+    "C:\\WINDOWS\\system32\\mswsock.dll",
+    "C:\\WINDOWS\\SYSTEM32\\kernel.appcore.dll",
+    "C:\\WINDOWS\\System32\\bcryptprimitives.dll",
+    "C:\\WINDOWS\\System32\\NSI.dll",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc6.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\dhcpcsvc.DLL",
+    "C:\\WINDOWS\\SYSTEM32\\DNSAPI.dll",
+    "C:\\WINDOWS\\system32\\napinsp.dll",
+    "C:\\WINDOWS\\system32\\pnrpnsp.dll",
+    "C:\\WINDOWS\\system32\\wshbth.dll",
+    "C:\\WINDOWS\\system32\\NLAapi.dll",
+    "C:\\WINDOWS\\System32\\winrnr.dll",
+    "C:\\Program Files\\National Instruments\\Shared\\mDNS Responder\\nimdnsNSP.dll",
+    "C:\\WINDOWS\\SYSTEM32\\nimdnsResponder.dll",
+    "C:\\WINDOWS\\SYSTEM32\\VCRUNTIME140.dll"
+  ]
+}
