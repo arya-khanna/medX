@@ -1,4 +1,4 @@
-const detectText = require('./GoogleCloudVision')
+const {detectText, verifyCredentials} = require('./GoogleCloudVision')
 const express = require('express')
 const app = express()
 const port = 3000
@@ -12,6 +12,7 @@ app.get('/', (req, res) => {
   })
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+app.listen(port, async () => {
+  console.log("Verifying credentials")
+  await verifyCredentials()
 })
