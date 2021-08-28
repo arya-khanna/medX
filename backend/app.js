@@ -32,10 +32,12 @@ app.post('/upload-prescription-image', async (req, res) => {
       await prescription.mv(fileName)
 	  
       detectText(fileName).then(async ret => {
-        const entities = await analyzeEntities('Howdy partner Arya! How you doing gimme drugs')
+        const description = ret.map(element => element.description)
+        description[0] = description[0].replace(/\n/g, ". ");
+        const entities = await analyzeEntities(description[0])
  
         res.send({
-          description: ret.map(element => element.description),
+          description: description,
           entities: entities
         });
       }).catch(error => {
