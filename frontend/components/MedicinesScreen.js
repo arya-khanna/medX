@@ -16,22 +16,39 @@ class MedicinesScreen extends React.Component {
   componentDidMount() {
     if (this.state.loading) {
       console.log(api)
-      fetch(`${api}/prescriptions`).then(response => {
-        console.log("in here")
-        console.log(response);
-      }).catch(err => {
+      fetch(`${api}/prescriptions`)
+        .then(response => response.json())
+        .then(data => {
+          this.setState({ medicines: data, loading: false });
+          console.log("loaded");
+        })
+        .catch(err => {
         console.log(err);
       })
     }
   }
 
   render() {
-    return(
-      <View style={styles.container}>
+    const { loading, medicines } = this.state;
+    console.log(medicines);
+    return (
+      loading ?
+        <Text> Loading </Text>
+        :
+        medicines.map(medicine => <Medicine key={medicine.id} medicine={medicine}/>)
+    );
+  }  
+};
+
+const Medicine = ({ medicine }) => {
+  const { id, name, filename, frequency, date_of_prescription, description, doctor_name } = medicine;
+  console.log(`${api}/prescription/${id}/file/${filename}`);
+  return (
+    <View style={styles.container}>
         <TouchableOpacity>
-          <Text style={[styles.MedName]}>Perindopril</Text>
+        <Text style={[styles.MedName]}>{name}</Text>
         </TouchableOpacity>
-        <Image source={{uri: 'https://familywnews.com/wp-content/uploads/sites/12/2018/09/cfarmafoto323175_1100.jpg'}}
+        <Image source={{uri: `${api}/prescription/${id}/file/${filename}`}}
           style={{marginTop: 20, width: 400, height: 300}} />
           <View style={{marginTop: 30}}>
             <Text style={styles.details}>Doctor Name: Dr. Strange</Text>
@@ -40,10 +57,8 @@ class MedicinesScreen extends React.Component {
             <Text style={styles.details}>Description: Perindopril is a medication used to treat high blood pressure, heart failure, or stable coronary artery disease.</Text>
           </View>
       </View>
-
-    );
-  }  
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {

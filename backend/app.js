@@ -4,6 +4,7 @@ const express = require('express');
 const { Database } = require('sqlite3');
 const app = express()
 const port = 3000
+const uploadDirectory = "uploads";
 const path = require('path');
 const fs = require('fs')
 
@@ -70,7 +71,7 @@ app.post("/prescription", (req, res) => {
   const name = req.body.name
   const fileName = req.body.fileName;
 
-  if (!fs.existsSync(path.join(__dirname, "uploads/" + fileName))) {
+  if (!fs.existsSync(path.join(__dirname, fileName))) {
     return res.status(400).send({
       error: "invalid request"
     })
@@ -96,7 +97,7 @@ app.get('/prescription/:id/file/:name', (req, res, next) => {
   var fileName = req.params.name
 
   var options = {
-    root: path.join(__dirname, 'uploads'),
+    root: path.join(__dirname, uploadDirectory),
     dotfiles: 'deny',
     headers: {
       'x-timestamp': Date.now(),
