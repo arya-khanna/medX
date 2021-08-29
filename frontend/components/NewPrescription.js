@@ -51,7 +51,7 @@ export default class NewPrescription extends React.Component {
                     prescription_name: response.prescription,
                     doctor_name: response.doctor_name,
                     frequency: response.frequency,
-                    notes: response.description
+                    description: response.description
                 })
         })
         .catch((error) => {
@@ -101,11 +101,11 @@ export default class NewPrescription extends React.Component {
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Doctor's Name</FormControl.Label>
-                                <Input p={2} placeholder="Doctor's Name" />
+                                <Input p={2} value={this.state.doctor_name} placeholder="Doctor's Name" />
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Frequency</FormControl.Label>
-                                <Input p={2} placeholder="Frequency" />
+                                <Input p={2} value={this.state.frequency} placeholder="Frequency" />
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Prescription Date</FormControl.Label>
@@ -133,11 +133,11 @@ export default class NewPrescription extends React.Component {
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Description</FormControl.Label>
-                                <Input p={2} placeholder="Description" />
+                                <Input p={2} value={this.state.description} placeholder="Description" />
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Notes</FormControl.Label>
-                                <Input p={2} placeholder="Notes" />
+                                <Input p={2} value={this.state.notes} placeholder="Notes" />
                             </Stack>
                         </FormControl>
                         <Button
