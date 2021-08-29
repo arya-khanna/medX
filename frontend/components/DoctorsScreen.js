@@ -58,7 +58,7 @@ const Doctor = ({ doctor }) => {
         </Box>
         <Box px={4} pb={4}>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly', alignContent: 'flex-end'}}>
-            <Image style={{width: 40, height: 40}} source={require('./assets/phone.jpg')}/>
+            <Image style={{width: 40, height: 40}} source={require('./assets/phone.png')}/>
             <Text style={{fontSize: 20}}>0{phone_number}</Text>
           </View>
         </Box>
