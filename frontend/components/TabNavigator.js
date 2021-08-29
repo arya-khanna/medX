@@ -20,28 +20,19 @@ import DoctorsScreen from './DoctorsScreen'
 
 const Tab = createBottomTabNavigator();
 
-const HomeScreen = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
-      <Text>Home!</Text>
-    </View>
-  );
-}
-
-const ShareScreen = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
-      <Text>Settings!</Text>
-    </View>
-  );
-}
+//const HomeScreen = () => {
+//  return (
+ //   <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+ //     <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
+ //     <Text>Home!</Text>
+ //   </View>
+//  );
+//}
 
 const TabNavigator = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="My Prescriptions"
       screenOptions={
         {
           "tabBarActiveBackgroundColor": "#F5E6E8",
@@ -56,46 +47,43 @@ const TabNavigator = () => {
     }
     >
       <Tab.Screen
-        name="Home"
-        component={HomeScreen}
+        name="My Prescriptions"
+        component={MedicinesScreen}
         options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Medicines',
           tabBarIcon: () => (
-            <Image style={{width: 40, height: 40}} source={require('./assets/home.png')}          
+            <Image style={{width: 40, height: 40}} source={require('./assets/med.png')}          
                 />
           ),
-          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerStyle: { backgroundColor: '#DBC2C6' },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
           }
         }}
       />
-      <Tab.Screen
-        name="Camera"
-        component={CameraScreen}
-        options={{
-          tabBarLabel: 'Camera',
-          tabBarIcon: () => (
-            <Image style={{width: 40, height: 40}} source={require('./assets/cam.png')}          
-                />
-          ),
-          headerStyle: { backgroundColor: Colors.brandBlue },
-          headerTitleStyle: {
-            color: Colors.white,
-            fontWeight: 'bold',
-          }
-        }}
-      />
+      
       <Tab.Screen
         name="Add A New Prescription"
         component={NewPrescription}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: () => (
-            <Text>NEW</Text>
-          ),
-          headerStyle: { backgroundColor: Colors.brandBlue },
+            <View
+              style={{
+                position: 'absolute',
+                bottom: 5, // space from bottombar
+                height: 70,
+                width: 70,
+                borderRadius: 58,
+                backgroundColor: '#AAA1C8',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+            <Image style={{width: 50, height: 50}} source={require('./assets/new.png')}          
+                /></View>
+              ),
+          headerStyle: { backgroundColor: '#DBC2C6' },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
@@ -120,22 +108,7 @@ const TabNavigator = () => {
           }
         }}
       /> */}
-      <Tab.Screen
-        name="My Prescriptions"
-        component={MedicinesScreen}
-        options={{
-          tabBarLabel: 'Medicines',
-          tabBarIcon: () => (
-            <Image style={{width: 40, height: 40}} source={require('./assets/med.png')}          
-                />
-          ),
-          headerStyle: { backgroundColor: Colors.brandBlue },
-          headerTitleStyle: {
-            color: Colors.white,
-            fontWeight: 'bold',
-          }
-        }}
-      />
+    
       <Tab.Screen
         name="My Doctors"
         component={DoctorsScreen}
@@ -145,7 +118,7 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/share.png')}          
                 />
           ),
-          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerStyle: { backgroundColor: '#DBC2C6' },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
