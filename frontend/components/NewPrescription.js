@@ -60,7 +60,28 @@ export default class NewPrescription extends React.Component {
     };
 
     createPrescription = () => {
-
+        fetch(`${api}/prescriptions`, {
+                method: 'POST',
+                body: {
+                    name: this.state.prescription,
+                    description: this.state.notes,
+                    prescription_name: this.state.prescription_name,
+                    doctor_name: this.state.doctor_name,
+                    frequency: this.state.frequency,
+                    notes: this.state.notes
+                },
+                headers: {
+                    'content-type': 'multipart/form-data',
+                },
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                console.log("GOT IT")
+                console.log('response', response);
+            })
+            .catch((error) => {
+                console.log('error', error);
+            });
     }
 
     onDateChange = (event, value) => {
@@ -79,7 +100,7 @@ export default class NewPrescription extends React.Component {
         } else {
             return (
                 <ScrollView>
-                    <NativeBaseProvider>
+                   <NativeBaseProvider>
                         <TouchableOpacity
                             onPress={() => this.setState({ showCamera: true })}
                             style={{
