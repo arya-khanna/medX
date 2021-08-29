@@ -29,15 +29,6 @@ const Tab = createBottomTabNavigator();
 //  );
 //}
 
-const ShareScreen = () => {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
-      <Text>Settings!</Text>
-    </View>
-  );
-}
-
 const TabNavigator = () => {
   return (
     <Tab.Navigator
@@ -64,7 +55,7 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/med.png')}          
                 />
           ),
-          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerStyle: { backgroundColor: '#DBC2C6' },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
@@ -92,7 +83,7 @@ const TabNavigator = () => {
             <Image style={{width: 50, height: 50}} source={require('./assets/new.png')}          
                 /></View>
               ),
-          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerStyle: { backgroundColor: '#DBC2C6' },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
@@ -127,7 +118,7 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/share.png')}          
                 />
           ),
-          headerStyle: { backgroundColor: Colors.brandBlue },
+          headerStyle: { backgroundColor: '#DBC2C6' },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
