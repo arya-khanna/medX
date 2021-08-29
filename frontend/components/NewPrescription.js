@@ -22,7 +22,6 @@ export default class NewPrescription extends React.Component {
 
     setImage = (image) => {
         this.setState({ gotImage: true, image: image, showCamera: false })
-
         this.handleUploadPhoto(image);
     }
 
@@ -38,7 +37,7 @@ export default class NewPrescription extends React.Component {
     };
 
     handleUploadPhoto = (photo) => {
-        fetch(`${api}/upload-prescription-image`, {
+        fetch(`${api}/demo_input`, {
             method: 'POST',
             body: this.createFormData(photo),
             headers: {
@@ -47,7 +46,6 @@ export default class NewPrescription extends React.Component {
         })
         .then((response) => response.json())
             .then((response) => {
-            console.log("GOT IT")
             console.log('response', response);
         })
         .catch((error) => {
