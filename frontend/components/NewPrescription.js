@@ -17,6 +17,10 @@ export default class NewPrescription extends React.Component {
             showCamera: false,
             gotImage: false,
             image: null,
+            prescription_name: "",
+            doctor_name: "",
+            frequency: "",
+            notes: ""
         }
     }
 
@@ -37,16 +41,18 @@ export default class NewPrescription extends React.Component {
     };
 
     handleUploadPhoto = (photo) => {
-        fetch(`${api}/demo_input`, {
+        fetch(`${api}/pitch-demo`, {
             method: 'POST',
-            body: this.createFormData(photo),
-            headers: {
-            'content-type': 'multipart/form-data',
-            },
         })
         .then((response) => response.json())
             .then((response) => {
-            console.log('response', response);
+                console.log('response', response);
+                this.setState({
+                    prescription_name: response.prescription,
+                    doctor_name: response.doctor_name,
+                    frequency: response.frequency,
+                    notes: response.description
+                })
         })
         .catch((error) => {
             console.log('error', error);
@@ -91,7 +97,7 @@ export default class NewPrescription extends React.Component {
                         <FormControl isRequired isInvalid>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Prescription Name</FormControl.Label>
-                                <Input p={2} placeholder="Prescription Name" />
+                                <Input p={2} value={this.state.prescription_name} placeholder="Prescription Name" />
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Doctor's Name</FormControl.Label>

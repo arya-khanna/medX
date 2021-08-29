@@ -28,11 +28,11 @@ app.post('/pitch-demo', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send({
     prescription: "Penicillin Vk",
-    doctor_name: "Dr Bruce Banner",
-    frequency: "Take 2 tablets stat, then one tab",
-    description: "Penicillin is an antibiotic used to treat a wide range of bacterial infections",
+      doctor_name: "Dr Bruce Banner",
+      frequency: "Take 2 tablets stat, then one tab",
+      description: "Penicillin is an antibiotic used to treat a wide range of bacterial infections",
   })
-}
+})
 
 app.post('/upload-prescription-image', async (req, res) => {
   console.log('/upload-prescription-image')

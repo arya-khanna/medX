@@ -29,7 +29,6 @@ export default function CameraScreen({setImage}) {
 
   const loadGallery = async () => {
     const photo = await ref.current.takePictureAsync()
-    console.log("DONE")
     setImage(photo)
   }
   
