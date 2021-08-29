@@ -5,6 +5,8 @@ import Colors from '../styles/Colors';
 import { api } from '../constants.js'
 import Spinner from './Spinner'
 import MyStatusBar from './MyStatusBar';
+import titleize from 'titleize';
+import { Box, Heading, Divider, NativeBaseProvider, VStack, Center } from 'native-base';
 
 class MedicinesScreen extends React.Component {
   constructor(props) {
@@ -32,37 +34,48 @@ class MedicinesScreen extends React.Component {
   render() {
     const { loading, medicines } = this.state;
     return (
-      <View>
+      <NativeBaseProvider>
       <MyStatusBar backgroundColor={Colors.brandBlue} barStyle="light-content" />
         {loading ?
           <Spinner />
           :
           <ScrollView>
-            {medicines.map(medicine => <Medicine key={medicine.id} medicine={medicine} />)}
+            {medicines.sort((a, b) => a.name > b.name).map(medicine => <Medicine key={medicine.id} medicine={medicine} />)}
           </ScrollView>
         }
-      </View>
+      </NativeBaseProvider>
     );
   }  
 };
 
 const Medicine = ({ medicine }) => {
   const { id, name, filename, frequency, date_of_prescription, description, doctor_name } = medicine;
-  console.log(`${api}/prescription/${id}/file/${filename}`);
   return (
-    <View style={styles.container}>
-        <TouchableOpacity>
-        <Text style={[styles.MedName]}>{name}</Text>
-        </TouchableOpacity>
-        <Image source={{uri: `${api}/prescription/${id}/file/${filename}`}}
-          style={{marginTop: 20, width: 400, height: 300}} />
-          <View style={{marginTop: 30}}>
-            <Text style={styles.details}>Doctor Name: {doctor_name}</Text>
-            <Text style={styles.details}>Frequency: {frequency}</Text>
-            <Text style={styles.details}>Date of Prescription: {date_of_prescription}</Text>
-            <Text style={styles.details}>Description: {description}</Text>
+    <Box border={1} borderRadius='md' shadow={2} style={{margin: 10}} bgColor={Colors.Pink}>
+      <VStack space={4} divider={<Divider />}>
+        <Box px={4} pt={4}>
+          <Center>
+            <Heading>
+              < Text style = {[styles.MedName]}> {titleize(name)} </Text>
+            </Heading>
+          </Center>
+        </Box>
+        <Box>
+          <Center>
+            <Image source={{uri: `${api}/prescription/${id}/file/${filename}`}}
+                style={{width: 100, height: 100 }} />
+          </Center>
+        </Box>
+        <Box px={4} pb={4}>
+         <View style={{marginTop: 30}}>
+            <Text style={styles.details}>{doctor_name}</Text>
+            <Text style={styles.details}>{frequency}</Text>
+            <Text style={styles.details}>You received this prescription on {date_of_prescription}</Text>
+            <Text style={{fontStyle: 'italic'}}>{description}</Text>
           </View>
-      </View>
+        </Box>
+      </VStack>
+    </Box>
   )
 }
 
