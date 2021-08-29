@@ -55,7 +55,7 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/med.png')}          
                 />
           ),
-          headerStyle: { backgroundColor: '#DBC2C6' },
+          headerStyle: { backgroundColor: Colors.brandBlue },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
@@ -83,7 +83,7 @@ const TabNavigator = () => {
             <Image style={{width: 50, height: 50}} source={require('./assets/new.png')}          
                 /></View>
               ),
-          headerStyle: { backgroundColor: '#DBC2C6' },
+          headerStyle: { backgroundColor: Colors.brandBlue },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
@@ -118,7 +118,9 @@ const TabNavigator = () => {
             <Image style={{width: 40, height: 40}} source={require('./assets/share.png')}          
                 />
           ),
-          headerStyle: { backgroundColor: '#DBC2C6' },
+          headerStyle: {
+            backgroundColor: Colors.brandBlue
+          },
           headerTitleStyle: {
             color: Colors.white,
             fontWeight: 'bold',
