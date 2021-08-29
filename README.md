@@ -1,6 +1,7 @@
-# medX
-
-![alt text](https://github.com/arya-khanna/medX/blob/master/medx.png
+# medX 
+<p align="center">
+  <img src="https://github.com/arya-khanna/medX/blob/master/medx.png?raw=true">
+</p>
 
 **Inspiration**
 The inspiration behind this project came from our own personal grandma and grandpa's who had lists of medications that they struggled to remember. As family members, we wanted to be able to keep track of this particularly when they see a new general practitioner, new pharmacy, go on a trip or need a new caretaker. Having a platform to easily keep track of medications by taking a single photo, converting that data into a readable format, reminders for when to take medicine and an easy way to share what you need to take with trusted people was something simple yet necessary to ensure the health of our loved ones.
