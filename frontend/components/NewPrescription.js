@@ -17,6 +17,10 @@ export default class NewPrescription extends React.Component {
             showCamera: false,
             gotImage: false,
             image: null,
+            prescription_name: "",
+            doctor_name: "",
+            frequency: "",
+            notes: ""
         }
     }
 
@@ -56,7 +60,28 @@ export default class NewPrescription extends React.Component {
     };
 
     createPrescription = () => {
-
+        fetch(`${api}/prescriptions`, {
+                method: 'POST',
+                body: {
+                    name: this.state.prescription,
+                    description: this.state.notes,
+                    prescription_name: this.state.prescription_name,
+                    doctor_name: this.state.doctor_name,
+                    frequency: this.state.frequency,
+                    notes: this.state.notes
+                },
+                headers: {
+                    'content-type': 'multipart/form-data',
+                },
+            })
+            .then((response) => response.json())
+            .then((response) => {
+                console.log("GOT IT")
+                console.log('response', response);
+            })
+            .catch((error) => {
+                console.log('error', error);
+            });
     }
 
     onDateChange = (event, value) => {
@@ -75,7 +100,7 @@ export default class NewPrescription extends React.Component {
         } else {
             return (
                 <ScrollView>
-                    <NativeBaseProvider>
+                   <NativeBaseProvider>
                         <TouchableOpacity
                             onPress={() => this.setState({ showCamera: true })}
                             style={{
@@ -93,15 +118,15 @@ export default class NewPrescription extends React.Component {
                         <FormControl isRequired isInvalid>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Prescription Name</FormControl.Label>
-                                <Input p={2} placeholder="Prescription Name" />
+                                <Input p={2} value={this.state.prescription_name} placeholder="Prescription Name" />
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Doctor's Name</FormControl.Label>
-                                <Input p={2} placeholder="Doctor's Name" />
+                                <Input p={2} value={this.state.doctor_name} placeholder="Doctor's Name" />
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Frequency</FormControl.Label>
-                                <Input p={2} placeholder="Frequency" />
+                                <Input p={2} value={this.state.frequency} placeholder="Frequency" />
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Prescription Date</FormControl.Label>
@@ -129,11 +154,11 @@ export default class NewPrescription extends React.Component {
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Description</FormControl.Label>
-                                <Input p={2} placeholder="Description" />
+                                <Input p={2} value={this.state.description} placeholder="Description" />
                             </Stack>
                             <Stack mx={4} style={{paddingBottom: 20}}>
                                 <FormControl.Label>Notes</FormControl.Label>
-                                <Input p={2} placeholder="Notes" />
+                                <Input p={2} value={this.state.notes} placeholder="Notes" />
                             </Stack>
                         </FormControl>
                         <Button
