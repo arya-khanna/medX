@@ -20,7 +20,9 @@ export default class NewPrescription extends React.Component {
             prescription_name: "",
             doctor_name: "",
             frequency: "",
-            notes: ""
+            notes: "",
+            done: false,
+            disable: false
         }
     }
 
@@ -60,21 +62,25 @@ export default class NewPrescription extends React.Component {
     };
 
     createPrescription = () => {
+        this.setState({disable: true})
         fetch(`${api}/prescriptions`, {
-                method: 'POST',
-                body: {
-                    name: this.state.prescription,
-                    description: this.state.notes,
-                    prescription_name: this.state.prescription_name,
-                    doctor_name: this.state.doctor_name,
-                    frequency: this.state.frequency,
-                    notes: this.state.notes
-                },
-                headers: {
-                    'content-type': 'multipart/form-data',
-                },
+            method: 'POST',
+            body: {
+                name: this.state.prescription,
+                description: this.state.notes,
+                prescription_name: this.state.prescription_name,
+                doctor_name: this.state.doctor_name,
+                frequency: this.state.frequency,
+                notes: this.state.notes
+            },
+            headers: {
+                'content-type': 'multipart/form-data',
+            },
             })
             .then((response) => response.json())
+            .then((response) => {
+                this.setState({ done: true })
+            })
             .then((response) => {
                 console.log("GOT IT")
                 console.log('response', response);
@@ -93,6 +99,14 @@ export default class NewPrescription extends React.Component {
     }
 
     render() {
+        if (this.state.done) {
+            <View>
+                <Center>
+                    <Text style={{ fontSize: 17 }}>Your Prescription has been added!</Text>
+                </Center>
+            </View>
+        }
+
         if (this.state.showCamera) {
             return (
                 <CameraScreen setImage={this.setImage}/>
@@ -162,6 +176,7 @@ export default class NewPrescription extends React.Component {
                             </Stack>
                         </FormControl>
                         <Button
+                            disabled={this.state.disable}
                             style={{
                                 alignSelf: 'flex-end',
                                 backgroundColor: Colors.primaryLavender,
